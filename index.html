@@ -1,1 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderNest Tourism - Explore the Beauty of Pakistan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923059562442" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-indigo-600">WanderNest</span>
+                        <span class="text-2xl font-bold text-gray-800">Tourism</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="#home" class="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+                        <a href="#destinations" class="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Destinations</a>
+                        <a href="#services" class="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                        <a href="#testimonials" class="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Testimonials</a>
+                        <a href="#gallery" class="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Gallery</a>
+                        <a href="#contact" class="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        <a href="https://wa.me/923059562442" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 flex items-center">
+                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-white shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-100">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-100">About Us</a>
+                <a href="#destinations" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-100">Destinations</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-100">Services</a>
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-100">Testimonials</a>
+                <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-100">Gallery</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-indigo-600 hover:bg-gray-100">Contact</a>
+                <a href="https://wa.me/923059562442" class="block px-3 py-2 rounded-md text-base font-medium bg-indigo-600 text-white hover:bg-indigo-700 flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image flex items-center justify-center text-center text-white">
+        <div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Explore the Beauty of Pakistan</h1>
+            <p class="text-xl md:text-2xl mb-8">Your journey, our responsibility.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/923059562442" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+                </a>
+                <a href="#destinations" class="bg-white hover:bg-gray-100 text-indigo-600 font-bold py-3 px-6 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-map-marked-alt mr-2"></i> Explore Tours
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">About WanderNest Tourism</h2>
+                <div class="mt-4 h-1 w-20 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="About Us" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">11+ Years of Creating Memorable Journeys</h3>
+                    <p class="text-gray-600 mb-6">WanderNest Tourism has been organizing exceptional tours across Pakistan's most breathtaking destinations for over a decade. Our expertise ensures unforgettable experiences for all types of travelers.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-6 w-6 rounded-md bg-indigo-500 text-white">
+                                    <i class="fas fa-heart text-sm"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600"><span class="font-bold text-gray-800">Romantic Getaways:</span> Perfect honeymoon packages for newlyweds</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-6 w-6 rounded-md bg-indigo-500 text-white">
+                                    <i class="fas fa-users text-sm"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600"><span class="font-bold text-gray-800">Family Vacations:</span> Safe and enjoyable trips for all ages</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-6 w-6 rounded-md bg-indigo-500 text-white">
+                                    <i class="fas fa-mountain text-sm"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600"><span class="font-bold text-gray-800">Group Tours:</span> Exciting adventures with like-minded travelers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Popular Destinations</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">Explore Pakistan's most breathtaking landscapes with our carefully curated tours</p>
+                <div class="mt-4 h-1 w-20 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination Card 1 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1792&q=80" alt="Hunza Valley" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Hunza Valley</h3>
+                        <p class="text-gray-600 mb-4">Known as the Shangri-La of Pakistan, Hunza offers breathtaking views of Rakaposhi and Ultar Sar peaks.</p>
+                        <a href="https://wa.me/923059562442" class="text-indigo-600 font-medium inline-flex items-center">Book Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Destination Card 2 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1588666309995-c0c3d4a1d1a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Skardu" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Skardu</h3>
+                        <p class="text-gray-600 mb-4">Gateway to the world's highest mountains, including K2, and home to the stunning Shangrila Resort.</p>
+                        <a href="https://wa.me/923059562442" class="text-indigo-600 font-medium inline-flex items-center">Book Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Destination Card 3 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1792&q=80" alt="Neelum Valley" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Neelum Valley</h3>
+                        <p class="text-gray-600 mb-4">A picturesque valley with lush green forests, gushing rivers, and charming villages along the Line of Control.</p>
+                        <a href="https://wa.me/923059562442" class="text-indigo-600 font-medium inline-flex items-center">Book Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Destination Card 4 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1588666309995-c0c3d4a1d1a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Swat Valley" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Swat Valley</h3>
+                        <p class="text-gray-600 mb-4">Known as the Switzerland of Pakistan, with its alpine meadows, lakes, and Buddhist heritage sites.</p>
+                        <a href="https://wa.me/923059562442" class="text-indigo-600 font-medium inline-flex items-center">Book Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Destination Card 5 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1792&q=80" alt="Naran Kaghan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Naran Kaghan</h3>
+                        <p class="text-gray-600 mb-4">Famous for its scenic beauty, including Lake Saif-ul-Malook, Lalazar, and Babusar Top.</p>
+                        <a href="https://wa.me/923059562442" class="text-indigo-600 font-medium inline-flex items-center">Book Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Destination Card 6 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1588666309995-c0c3d4a1d1a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Fairy Meadows" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Fairy Meadows</h3>
+                        <p class="text-gray-600 mb-4">A beautiful grassland near Nanga Parbat, offering one of the most spectacular views in the world.</p>
+                        <a href="https://wa.me/923059562442" class="text-indigo-600 font-medium inline-flex items-center">Book Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                    Customize Your Tour <i class="fas fa-pen-nib ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Services</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">Comprehensive travel solutions for a hassle-free experience</p>
+                <div class="mt-4 h-1 w-20 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Honeymoon Packages</h3>
+                    <p class="text-gray-500">Romantic getaways with private accommodations, candlelight dinners, and breathtaking views.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Hotel Bookings</h3>
+                    <p class="text-gray-500">Premium accommodations ranging from luxury resorts to cozy mountain lodges.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Private Transport</h3>
+                    <p class="text-gray-500">Comfortable vehicles including cars, buses, and coasters with professional drivers.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Meal Services</h3>
+                    <p class="text-gray-500">Delicious breakfast, lunch, and dinner included with local and continental options.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">24/7 Support</h3>
+                    <p class="text-gray-500">Round-the-clock assistance for any travel needs or emergencies during your trip.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Safe Environment</h3>
+                    <p class="text-gray-500">Female-safe and couple-secure travel arrangements with trusted staff.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">What Our Travelers Say</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">Hear from couples and families who experienced Pakistan with us</p>
+                <div class="mt-4 h-1 w-20 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah K.">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Sarah K.</h4>
+                            <p class="text-indigo-600">Honeymoon Package</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Our honeymoon in Hunza was magical! WanderNest arranged everything perfectly - from the romantic hotel room with mountain views to private dinners under the stars. Highly recommend!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ahmed R.">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Ahmed R.</h4>
+                            <p class="text-indigo-600">Family Vacation</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Took my family of 6 to Naran Kaghan with WanderNest. The kids had a blast, and we felt completely safe throughout. Their guides were knowledgeable and patient with our children."</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fatima Z.">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Fatima Z.</h4>
+                            <p class="text-indigo-600">Girls' Trip</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"As a group of female travelers, safety was our top concern. WanderNest provided female guides and secure accommodations. We enjoyed Swat Valley without any worries!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Usman A.">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Usman A.</h4>
+                            <p class="text-indigo-600">Adventure Tour</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Fairy Meadows trek organized by WanderNest was incredible. Their team handled all logistics perfectly, allowing us to focus on enjoying the breathtaking views of Nanga Parbat."</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ayesha M.">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Ayesha M.</h4>
+                            <p class="text-indigo-600">Couple's Retreat</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Our anniversary trip to Skardu was beyond expectations. The private boat ride on Shangrila Lake at sunset was the highlight. Thank you WanderNest for making it special!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/men/68.jpg" alt="Kamran S.">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Kamran S.</h4>
+                            <p class="text-indigo-600">Group Tour</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Organized a group tour of 15 people to Neelum Valley. WanderNest handled everything flawlessly - transport, food, accommodations. The bonfire nights were unforgettable!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Gallery</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">Moments captured from our unforgettable tours</p>
+                <div class="mt-4 h-1 w-20 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Group Trekking" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1588666309995-c0c3d4a1d1a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Lake View" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Hotel Room" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1792&q=80" alt="Couple Trip" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1588666309995-c0c3d4a1d1a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Bonfire Night" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1792&q=80" alt="Food Service" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="parallax py-32 text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for Your Adventure?</h2>
+            <p class="text-xl mb-8">Let us craft your perfect Pakistani getaway. Contact us today to start planning!</p>
+            <a href="https://wa.me/923059562442" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Contact Us</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">Get in touch to plan your dream vacation</p>
+                <div class="mt-4 h-1 w-20 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Our Location</h4>
+                                    <p class="text-gray-600">Islamabad, Pakistan</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Email Us</h4>
+                                    <p class="text-gray-600">ajmehsud12@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Call/WhatsApp</h4>
+                                    <p class="text-gray-600">+92 305 9562442</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Working Hours</h4>
+                                    <p class="text-gray-600">Monday - Sunday: 9:00 AM - 10:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-gray-900 mb-4">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://wa.me/923059562442" class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">WanderNest Tourism</h3>
+                    <p class="text-gray-400">Explore the Beauty of Pakistan with Us</p>
+                    <p class="text-gray-400 mt-4">Your journey, our responsibility.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#destinations" class="text-gray-400 hover:text-white">Destinations</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Popular Tours</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Hunza Valley Tour</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Skardu Adventure</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Neelum Valley Getaway</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Naran Kaghan Family Package</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Honeymoon Special</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>Islamabad, Pakistan</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>ajmehsud12@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+92 305 9562442</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/923059562442" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2025 WanderNest Tourism. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
